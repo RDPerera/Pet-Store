@@ -1,13 +1,5 @@
 # PetStore Application
 
-## Introduction
-
-MicroProfile Starter has generated this MicroProfile application for you.
-
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
 ## Packaging and running the application
 
 If you want to build an _??ber-jar_, execute the following command:
@@ -63,7 +55,7 @@ If you want to learn more about building native executables, please consult http
 
 
 ## Test API using curl
-### Manage Pets
+### Addi/View/Update/Delete Pets
 Create new pet
 
     curl --location --request POST 'localhost:8080/v1/pets/create' \
@@ -75,19 +67,6 @@ Create new pet
 Get pet by ID
 
     curl --location --request GET 'localhost:8080/v1/pets/1'
-
-Get pet by name
-
-    curl --location --request GET 'localhost:8080/v1/pets/name/kalu'
-
-Get pet by type
-
-    curl --location --request GET 'localhost:8080/v1/pets/type/Cat'
-
-Get pet by age
-
-    curl --location --request GET 'localhost:8080/v1/pets/age/6'
-
 
 Update pet by ID
 
@@ -102,7 +81,7 @@ Delete pet by ID
 
     curl --location --request DELETE 'localhost:8080/v1/pets/1' 
 
-### Manage Pet Types
+### Add/View/Update/Delete Pet Types
 Create new pet type
 
     curl --location --request POST 'localhost:8080/v1/pettype/create' \
@@ -125,7 +104,47 @@ Delete pet by ID
 
     curl --location --request DELETE 'localhost:8080/v1/pettype/1' 
 
+### Search for Pets
 
-## Deploying Application
+Get pet by ID
 
-To deploy the demo app on a docker-compose please visit [./deploy](https://github.com/rasika/petstore/tree/master/deploy)
+    curl --location --request GET 'localhost:8080/v1/pets/1'
+
+Get pet by name
+
+    curl --location --request GET 'localhost:8080/v1/pets/name/kalu'
+
+Get pet by type
+
+    curl --location --request GET 'localhost:8080/v1/pets/type/Cat'
+
+Get pet by age
+
+    curl --location --request GET 'localhost:8080/v1/pets/age/6'
+
+## Run Test Suites
+Test suites (Junit/RestAssured) are available in test/java/org/acme/
+
+    PetResourceTest.java
+    PetTypeResourceTest.java
+
+Run
+
+    ./gradlew test
+
+## Docker Deploying
+
+Create docker image
+
+    ./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true -Dquarkus.container-image.build=true
+
+Run image
+
+    docker run -i --rm -p 8080:8080 rdila/petstore:unspecified
+
+Deploy on docker compose
+
+    cd deploy
+    docker-compose up -d
+
+View dashboard at  http://localhost:3000/dashboards
