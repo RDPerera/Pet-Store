@@ -62,6 +62,68 @@ You can then execute your native executable with:
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image.
 
 
+## Test API using curl
+### Manage Pets
+Create new pet
+
+    curl --location --request POST 'localhost:8080/v1/pets/create' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'pet_name=Chuti'
+    --data-urlencode 'pet_type=Cat' \
+    --data-urlencode 'pet_age=4' \
+    
+Get pet by ID
+
+    curl --location --request GET 'localhost:8080/v1/pets/1'
+
+Get pet by name
+
+    curl --location --request GET 'localhost:8080/v1/pets/name/kalu'
+
+Get pet by type
+
+    curl --location --request GET 'localhost:8080/v1/pets/type/Cat'
+
+Get pet by age
+
+    curl --location --request GET 'localhost:8080/v1/pets/age/6'
+
+
+Update pet by ID
+
+    curl --location --request PUT 'localhost:8080/v1/pets/update' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'pet_type=Dog' \
+    --data-urlencode 'pet_age=6' \
+    --data-urlencode 'pet_name=Kalu' \
+    --data-urlencode 'pet_id=2'
+
+Delete pet by ID
+
+    curl --location --request DELETE 'localhost:8080/v1/pets/1' 
+
+### Manage Pet Types
+Create new pet type
+
+    curl --location --request POST 'localhost:8080/v1/pettype/create' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'pet_type=Cat' 
+
+Get pet type by ID
+
+    curl --location --request GET 'localhost:8080/v1/pettype/1'
+
+Update pet by ID
+
+    curl --location --request PUT 'localhost:8080/v1/pettype/update' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'pet_type_id=1' \
+    --data-urlencode 'pet_type=Cat'
+    
+
+Delete pet by ID
+
+    curl --location --request DELETE 'localhost:8080/v1/pettype/1' 
 
 
 ## Deploying Application
