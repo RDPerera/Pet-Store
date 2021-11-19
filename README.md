@@ -58,69 +58,55 @@ If you want to learn more about building native executables, please consult http
 ### Addi/View/Update/Delete Pets
 Create new pet
 
-    curl --location --request POST 'localhost:8080/v1/pets/create' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'pet_name=Chuti'
-    --data-urlencode 'pet_type=Cat' \
-    --data-urlencode 'pet_age=4' \
+    curl --location --request POST "localhost:8080/v1/pets/create" --header "Content-Type: application/x-www-form-urlencoded" --data-urlencode "pet_name=Chuti" --data-urlencode "pet_type=Cat" --data-urlencode "pet_age=4"
     
 Get pet by ID
-
-    curl --location --request GET 'localhost:8080/v1/pets/1'
+    
+    curl --location --request GET "localhost:8080/v1/pets/1"
 
 Update pet by ID
 
-    curl --location --request PUT 'localhost:8080/v1/pets/update' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'pet_type=Dog' \
-    --data-urlencode 'pet_age=6' \
-    --data-urlencode 'pet_name=Kalu' \
-    --data-urlencode 'pet_id=2'
+    curl --location --request PUT "localhost:8080/v1/pets/update" --header "Content-Type: application/x-www-form-urlencoded" --data-urlencode "pet_type=Dog" --data-urlencode "pet_age=6" --data-urlencode "pet_name=Sudu" --data-urlencode "pet_id=1"
 
 Delete pet by ID
 
-    curl --location --request DELETE 'localhost:8080/v1/pets/1' 
+    curl --location --request DELETE "localhost:8080/v1/pets/1"
 
 ### Add/View/Update/Delete Pet Types
 Create new pet type
 
-    curl --location --request POST 'localhost:8080/v1/pettype/create' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'pet_type=Cat' 
+    curl --location --request POST "localhost:8080/v1/pettype/create" --header "Content-Type: application/x-www-form-urlencoded" --data-urlencode "type=Snake" 
 
 Get pet type by ID
 
-    curl --location --request GET 'localhost:8080/v1/pettype/1'
+    curl --location --request GET "localhost:8080/v1/pettype/1"
 
 Update pet by ID
 
-    curl --location --request PUT 'localhost:8080/v1/pettype/update' \
-    --header 'Content-Type: application/x-www-form-urlencoded' \
-    --data-urlencode 'pet_type_id=1' \
-    --data-urlencode 'pet_type=Cat'
+    curl --location --request PUT "localhost:8080/v1/pettype/update" --header "Content-Type: application/x-www-form-urlencoded" --data-urlencode "pet_type_id=2" --data-urlencode "pet_type=Snake"
     
 
 Delete pet by ID
 
-    curl --location --request DELETE 'localhost:8080/v1/pettype/1' 
+    curl --location --request DELETE "localhost:8080/v1/pettype/1" 
 
 ### Search for Pets
 
 Get pet by ID
 
-    curl --location --request GET 'localhost:8080/v1/pets/1'
+    curl --location --request GET "localhost:8080/v1/pets/1"
 
 Get pet by name
 
-    curl --location --request GET 'localhost:8080/v1/pets/name/kalu'
+    curl --location --request GET "localhost:8080/v1/pets/name/Kalu"
 
 Get pet by type
 
-    curl --location --request GET 'localhost:8080/v1/pets/type/Cat'
+    curl --location --request GET "localhost:8080/v1/pets/type/Dog"
 
 Get pet by age
 
-    curl --location --request GET 'localhost:8080/v1/pets/age/6'
+    curl --location --request GET "localhost:8080/v1/pets/age/7"
 
 ## Run Test Suites
 Test suites (Junit/RestAssured) are available in test/java/org/acme/
